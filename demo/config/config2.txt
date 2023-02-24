@@ -1,0 +1,4 @@
+mssql_host=subschurnpoc.database.windows.net
+mssql_usrname=subschurn
+mssql_passwd=SubsAdmin@654
+mssql_db=Subschurn

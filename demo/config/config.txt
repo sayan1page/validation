@@ -1,0 +1,4 @@
+mysql_host=127.0.0.1
+mysql_usrname=root
+mysql_passwd=sayan123
+mysql_db=test

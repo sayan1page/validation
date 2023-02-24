@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+	    var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", "http://127.0.0.1:5000/map4/pb_rev", false ); // false for synchronous request
+		xmlHttp.send( null );
+        arr = JSON.parse(xmlHttp.responseText.replace(/'/g,"\""));
+		var data = google.visualization.arrayToDataTable(arr);
+        
+		var options = {
+          title: 'Publisher Revenue Comparison MAP2 Vs MAP4',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('rev_chart_publisher'));
+
+        chart.draw(data, options);
+      }
+    </script>
+	<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+	    var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", "http://127.0.0.1:5000/map4/pm_rev", false ); 
+		xmlHttp.send( null );
+		arr = JSON.parse(xmlHttp.responseText.replace(/'/g,"\""));
+		var data = google.visualization.arrayToDataTable(arr);
+        
+		var options = {
+          title: 'Pubmatic Revenue Comparison MAP2 Vs MAP4',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('rev_chart_pubmatic'));
+
+        chart.draw(data, options);
+      }
+    </script>
+	
+	<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+	  
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", "http://127.0.0.1:5000/map4_impact", false ); 
+		xmlHttp.send( null );
+		arr = JSON.parse(xmlHttp.responseText.replace(/'/g,"\""));
+		var data = google.visualization.arrayToDataTable(arr);
+
+        var options = {
+          title: 'Impact of MAP4 on Publisher ie Takerate other than Platform Fee'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_map4'));
+
+        chart.draw(data, options);
+      }
+    </script>
+	
+	<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+	  
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", "http://127.0.0.1:5000/map2_impact", false ); 
+		xmlHttp.send( null );
+		arr = JSON.parse(xmlHttp.responseText.replace(/'/g,"\""));
+		var data = google.visualization.arrayToDataTable(arr);
+
+        var options = {
+          title: 'Impact of MAP2 on Publisher ie Takerate other than Platform Fee'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_map2'));
+
+        chart.draw(data, options);
+      }
+    </script>
+	<script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+	  var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", "http://127.0.0.1:5000/map4_special", false ); 
+		xmlHttp.send( null );
+		arr = JSON.parse(xmlHttp.responseText.replace(/'/g,"\""));
+		var data = google.visualization.arrayToDataTable(arr);
+
+        var options = {
+          title: 'Distribution of calculated take off when pf=1',
+          legend: { position: 'none' },
+        };
+
+        var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="rev_chart_publisher" style="width: 900px; height: 500px"></div>
+	<div id="rev_chart_pubmatic" style="width: 900px; height: 500px"></div>
+	<div id="piechart_map4" style="width: 900px; height: 500px;"></div>
+	<div id="piechart_map2" style="width: 900px; height: 500px;"></div>
+	<div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

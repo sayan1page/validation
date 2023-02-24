@@ -1,0 +1,5 @@
+compare_table=Intermediate.ScaledStripeUserJourney
+compare_column=PlanStartDate
+target_column=EventDate
+refer_column=UserId
+

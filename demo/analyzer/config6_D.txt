@@ -1,0 +1,12 @@
+agregated_table=Intermediate.StripeETL
+agregated_column=DuringPeriodNumberOfPlanDowngrades
+filtering_date_column=computeStartDate
+Number_of_months=6
+filtering_column=IsCumulativeRecord
+filter_value=0
+is_not=false
+group_by_column=UserId,UserPlanId
+aggregation_type=sum
+target_table=Intermediate.StripeETL
+target_column=LastSixMonthNumberOfPlandowngrades
+compared_on_column=UserId,UserPlanId 
